@@ -3,7 +3,6 @@ package services;
 import entities.Voo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class VooService {
@@ -15,14 +14,29 @@ public class VooService {
     public VooService() {
     }
 
-    public static int calculaPassageiros(String origem, String destino){
+    public void adicionaVoo(Voo voo){
+        vooList.add(voo);
+        System.out.println("voo adicionado com sucesso!");
+    }
+
+    public void calculaPassageiros(String origem, String destino){
         int count = 0;
         for (Voo voo : vooList){
             if (voo.getOrigem().equals(origem) && voo.getDestino().equals(destino)){
-                count = Arrays.stream(voo.getReserva().getNumReserva()).toArray().length;
+                //System.out.println(voo.getReserva().getAssento());
+                count++;
             }
         }
-        return count;
+        int valor = 1000 + (5 * count);
+        System.out.println(valor);
+    }
+
+    public void listarVoo(String origem, String destino) {
+        for (Voo voo : vooList) {
+            if (voo.getOrigem().equals(origem) && voo.getDestino().equals(destino)) {
+                System.out.println(voo);
+            }
+        }
     }
 
 }
