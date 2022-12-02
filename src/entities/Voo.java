@@ -9,16 +9,16 @@ public class Voo {
 
     private String origem;
     private String destino;
-
     private Reserva reserva;
     private final List<Reserva> reservaList = new ArrayList<>();
 
     public Voo() {
     }
 
-    public Voo(String origem, String destino) {
+    public Voo(String origem, String destino, Reserva reserva) {
         this.origem = origem;
         this.destino = destino;
+        this.reserva = reserva;
     }
 
     public String getOrigem() {
@@ -59,7 +59,7 @@ public class Voo {
         return "Voo{" +
                 "origem='" + origem + '\'' +
                 ", destino='" + destino + '\'' +
-                ", reservaList=" + reservaList +
+                reservaList +
                 '}';
     }
 }

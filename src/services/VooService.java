@@ -1,5 +1,6 @@
 package services;
 
+import entities.Cliente;
 import entities.Voo;
 
 import java.util.ArrayList;
@@ -19,16 +20,16 @@ public class VooService {
         System.out.println("voo adicionado com sucesso!");
     }
 
-    public void calculaPassageiros(String origem, String destino){
+    public double calculaValorPassagem(String origem, String destino){
         int count = 0;
         for (Voo voo : vooList){
             if (voo.getOrigem().equals(origem) && voo.getDestino().equals(destino)){
-                //System.out.println(voo.getReserva().getAssento());
-                count++;
+                if (voo.getReserva().getAssento() > 6){
+                    count++;
+                }
             }
         }
-        int valor = 1000 + (5 * count);
-        System.out.println(valor);
+        return 100 + (5 * Math.log10(count));
     }
 
     public void listarVoo(String origem, String destino) {
@@ -38,5 +39,23 @@ public class VooService {
             }
         }
     }
+
+    public void alteraAssento(int reserva, int assento){
+        for (Voo voo: vooList){
+            if (voo.getReserva().getNumReserva() == reserva){
+                voo.getReserva().setAssento(assento);
+            }
+        }
+        //System.out.println(voo);
+    }
+
+    public void alteraTitularidade(int reserva, Cliente cliente){
+        for (Voo voo: vooList){
+            if (voo.getReserva().getNumReserva() == reserva){
+                voo.getReserva().setCliente(cliente);
+            }
+        }
+    }
+
 
 }
