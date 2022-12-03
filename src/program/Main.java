@@ -1,7 +1,6 @@
 package program;
 
 import entities.Cliente;
-import entities.Passagem;
 import entities.Reserva;
 import entities.Voo;
 import services.VooService;
@@ -17,7 +16,7 @@ public class Main {
         List<Voo> voos = new ArrayList<>();
 
         try (Scanner sc = new Scanner(System.in)) {
-            String opcao = "";
+            String opcao;
             boolean sair = false;
 
             Cliente cliente = new Cliente("Ingrid", "1234556");
@@ -94,7 +93,7 @@ public class Main {
                         System.out.println("Qual número do assento que você deseja? ");
                         int assento = sc.nextInt();
 
-                        service.alteraAssento(numReserva, assento);
+                        service.alterarAssento(numReserva, assento);
                         System.out.println("Assento alterado com sucesso!");
 
                     }
@@ -111,7 +110,7 @@ public class Main {
 
                         Cliente novoCliente = new Cliente(nome, cpf);
 
-                        service.alteraTitularidade(numReserva, novoCliente);
+                        service.alterarTitularidade(numReserva, novoCliente);
 
                         System.out.println("Titularidade alterada com sucesso!");
                     }
@@ -132,7 +131,7 @@ public class Main {
                         Reserva r1 = new Reserva(c1);
 
                         voo.setReserva(null);
-                        service.cancelaReserva(numReserva, r1);
+                        service.cancelarReserva(numReserva, r1);
 
 
                     }
@@ -144,7 +143,7 @@ public class Main {
                         System.out.println("destino");
                         String destino = sc.next();
 
-                        service.listarVoo(origem, destino);;
+                        service.listarVoo(origem, destino);
                     }
                     default -> {
                     }
