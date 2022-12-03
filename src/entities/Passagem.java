@@ -16,7 +16,6 @@ public class Passagem {
 
     private final List<Voo> voos = new ArrayList<>();
 
-    private final List<Voo> listaDeVoo = new ArrayList<>();
 
     public Passagem() {
     }

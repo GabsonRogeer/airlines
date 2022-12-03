@@ -116,7 +116,25 @@ public class Main {
                         System.out.println("Titularidade alterada com sucesso!");
                     }
                     case "4" -> {
-                        System.out.println("Função ainda não implementada");
+                        System.out.println("-> Cancelar reserva");
+
+                        System.out.println("Qual o número da reserva? ");
+                        int numReserva = sc.nextInt();
+
+                        System.out.println("Confirme os dados:");
+                        System.out.println("Nome:");
+                        String nome = sc.next();
+
+                        System.out.println("CPF");
+                        String cpf = sc.next();
+
+                        Cliente c1 = new Cliente(nome, cpf);
+                        Reserva r1 = new Reserva(c1);
+
+                        voo.setReserva(null);
+                        service.cancelaReserva(numReserva, r1);
+
+
                     }
                     case "5" -> {
                         System.out.println("-> Listar voo");

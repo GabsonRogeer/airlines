@@ -53,6 +53,10 @@ public class Voo {
         reservaList.add(reserva);
     }
 
+    public void removeReserva(Reserva reserva){
+        reservaList.remove(reserva);
+    }
+
 
     @Override
     public String toString() {

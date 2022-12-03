@@ -1,14 +1,13 @@
 package services;
 
 import entities.Cliente;
+import entities.Reserva;
 import entities.Voo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VooService {
-
-    public final Voo voo = new Voo();
 
     static List<Voo> vooList = new ArrayList<>();
 
@@ -53,6 +52,17 @@ public class VooService {
         for (Voo voo: vooList){
             if (voo.getReserva().getNumReserva() == reserva){
                 voo.getReserva().setCliente(cliente);
+            }
+        }
+    }
+
+    public void cancelaReserva(int numReserva, Reserva reserva ){
+        for (Voo voo : vooList){
+            if (voo.getReserva().getNumReserva() == numReserva){
+                if (voo.getReserva() == reserva){
+                    voo.removeReserva(reserva);
+                    System.out.println("voo removido com sucesso!");
+                }
             }
         }
     }
