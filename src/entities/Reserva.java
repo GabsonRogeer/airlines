@@ -16,7 +16,8 @@ public class Reserva {
         Random random = new Random();
         this.numReserva = random.nextInt(9999) + 1;
         this.cliente = cliente;
-        this.assento = random.nextInt(200) + 1;
+        //todo: O rolê dos 7+
+        this.assento = random.nextInt(7, 220) + 1;
     }
 
     public int getNumReserva() {
@@ -45,10 +46,8 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" +
-                "Número da Reserva =" + numReserva +
-                ", Cliente =" + cliente +
-                ", Assento =" + assento +
-                '}';
+        return "Número da Reserva = " + numReserva +
+                ", Dados do cliente: " + cliente +
+                ", Assento =" + assento;
     }
 }
